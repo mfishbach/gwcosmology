@@ -1,4 +1,5 @@
 from numpy import *
+from scipy.interpolate import UnivariateSpline
 
 def HDI(credint, pdfs, xs):
     """Calculate the highest posterior probability interval by a waterfilling algorithm
@@ -29,9 +30,9 @@ def HDI(credint, pdfs, xs):
         else:
             mass+=0.5*pdfs[n]*(xs[n+1]-xs[n-1])
         if mass >= credint:
-            print mass
+            #print mass
             pdf_thresh = pdfs[n]
-            print pdf_thresh
+            #print pdf_thresh
             break
     idx1 = argmax(pdfs>=pdf_thresh)
     idx2 = argmax(pdfs[::-1]>=pdf_thresh)

@@ -97,7 +97,9 @@ if manifest_exists:
     with open(utils.H0files_dict_name(args.PEsamps), 'r') as f:
         H0files = json.load(f)
         if args.graceid in H0files.keys():
-            set(H0files[args.graceid]).add(json_fname)
+            graceidset = set(H0files[args.graceid])
+            graceidset.add(json_fname)
+            H0files[args.graceid] = list(graceidset)
         else:
             H0files[args.graceid] = [json_fname]
     with open(utils.H0files_dict_name(args.PEsamps),'w') as out:

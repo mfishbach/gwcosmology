@@ -16,7 +16,7 @@ def h0_name(graceid,chosen_skymap,galaxyname,PE_samples=False):
     "generate a standard filename for H0 posterior"
     skyname = chosen_skymap.split('.')[0]
     if PE_samples is False:
-        return "H0-public-%s-%s-%s.json"%(graceid,skyname,galaxyname)
+        return "/home/maya.fishbach/public_html/cgi-bin/H0-public-%s-%s-%s.json"%(graceid,skyname,galaxyname)
     if PE_samples is True:
         return "H0-proprietary-%s-%s-%s.json"%(graceid,skyname,galaxyname)
 
@@ -28,7 +28,7 @@ def H0_plot_name(graceid,chosen_skymap,galaxyname):
 def H0files_dict_name(private):
      "generate a standard filename for json dictionary containing all available H0 likelihoods"
      if private is True:
-         return "manifest-private.json"
+         return "/home/maya.fishbach/public_html/manifest-private.json"
      else:
-         return "manifest-public.json"
+         return "/home/maya.fishbach/public_html/manifest-public.json"
 
